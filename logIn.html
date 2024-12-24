@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn-Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: #212121;
+            color: #FFF;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            row-gap: 2rem;
+            border: 2px solid white;
+            width: 20rem;
+            height: 25rem;
+            /* height: auto; */
+            background-color: #FFF;
+            color: #212121;
+            margin-top: 10rem;
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .heading {
+            font-size: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .username {
+            align-self: flex-start;
+        }
+
+        .password {
+            align-self: flex-start;
+        }
+
+        .forgotPassword {
+            align-self: flex-end;
+            cursor: pointer;
+        }
+
+        html {
+            font-size: 16px;
+            /* default for desktop */
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+                /* smaller font size for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 12px;
+                /* even smaller font size for mobile */
+            }
+        }
+
+        img {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .logIn {
+            width: 10rem;
+            padding: 0.6rem;
+            background-color: #212121;
+            color: #FFF;
+            border-radius: 20px;
+        }
+
+        input {
+            width: 18rem;
+            height: 2rem;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .passBtn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form onsubmit="validateLogin()">
+        <div class="container">
+            <div class="heading">
+                LOGIN
+            </div>
+            <div class="username">
+                <div class="content-1"><img src="profile.png" alt="profile"> Username</div>
+                <input type="text" placeholder="Enter Username" style="border-radius: 5px;" id="username">
+            </div>
+            <div class="password">
+                <div class="content-2"><img src="lock.jpeg" alt="lock">Password</div>
+                <div class="password-container">
+                    <input type="text" placeholder="Enter Password" style="border-radius: 5px;" id="password">
+                    <button class="passBtn" id="password-button">👁️</button>
+                </div>
+            </div>
+            <div class="forgotPassword" style="color: rgb(86, 86, 212);">Forgot Password ?</div>
+            <button class="logIn">LOGIN</button>
+        </div>
+    </form>
+</body>
+<script>
+    const passwordButton = document.querySelector('#password');
+    const togglePasswordButton = document.querySelector('#password-button');
+
+    togglePasswordButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        if (passwordButton.type === 'password') {
+            passwordButton.type = 'text';
+            togglePasswordButton.textContent = '👀'; // Shows eye symbol when password is visible
+        } else {
+            passwordButton.type = 'password';
+            togglePasswordButton.textContent = '👁️'; // Shows eye-with-line symbol when password is hidden
+        }
+    });
+
+
+    const forgetPassword = document.querySelector('.forgotPassword');
+    forgetPassword.addEventListener('click', function () {
+        alert('Yaad rakha kar bhai/behen');
+    });
+
+    function validateLogin() {
+        const username = document.querySelector('#username').value;
+        const password = document.querySelector('#password').value;
+
+
+
+        // Check if both fields are empty
+        if (username === "" && password === "") {
+            alert("Please enter both username and password.");
+            return false; // Prevent form submission
+        }
+        // Check if username is empty
+        else if (username === "") {
+            alert("Please enter your username.");
+            return false; // Prevent form submission
+        }
+        // Check if password is empty
+        else if (password === "") {
+            alert("Please enter your password.");
+            return false; // Prevent form submission
+        }
+
+        // If both fields are filled, allow form submission
+        alert('LogIn successfully');
+        window.location.assign('index.html');
+        return true;
+    }
+
+</script>
+
+</html>

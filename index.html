@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMate</title>
+    <link rel="shortcut icon" href="notepad.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#" class="menu-btn" id="home">Home</a>
+            <a href="#" class="menu-btn" id="profile">Profile</a>
+            <a href="#" class="menu-btn" id="setting">Settings</a>
+            <a href="#" class="menu-btn" id="contact">Contact</a>
+          </div>
+        <nav>
+            <div class="left">
+                <div class="text-1" onclick="openNav()">&#9776; Menu</div>
+            </div>
+            <div class="right">
+                <button class="dark" onclick="myFunction()">Light Mode</button>
+                <button class="login">LogIn</button>
+                <button class="signup">SignUp</button>
+            </div>
+        </nav>
+        <div class="name">
+            TaskMate
+        </div>
+        <div class="content">
+            Your personal To-Do-List app
+        </div>
+    </header>
+    <main>
+        <div class="spaceContainer"></div>
+        <button class="addNote">Add Task</button>
+    </main>
+</body>
+<script src="script.js"></script>
+</html>
